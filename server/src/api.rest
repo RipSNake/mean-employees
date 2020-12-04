@@ -1,0 +1,12 @@
+
+###
+Send Request
+GET http://localhost:4000/api/employees
+
+###
+Send Request
+POST http://localhost:4000/api/employees
+
+{
+	"name": "sebas"
+}
