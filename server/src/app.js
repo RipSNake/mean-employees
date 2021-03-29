@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors'); // modulo para permitir la comunicacion entre diferentes puertos del mismo servidor. Tambien sirve para especificar desde que URL y/o Puerto podemos aceptar conexiones.
 
 const app = express();
 
@@ -9,6 +10,7 @@ const app = express();
 app.set('port', process.env.PORT || 4000);
 
 // Middlewares
+app.use(cors()); // Si queremos que acepte conexiones de un puerto en particular difiniriamos cors({origin: 'URL:puerto'}), entonces solo aceptaría peticiones desde las URL que hayamos definido
 app.use(morgan('dev')); // Escucha las peticiones que llegan al server y las muestran por consola
 app.use(express.json()); // Para entender objetos json
 app.use(express.urlencoded({extended: false})); // Para entender formularios html
